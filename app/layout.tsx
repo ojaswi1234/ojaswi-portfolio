@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 //import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
+import { Roboto } from "next/font/google";
 
 /*
 const geistSans = Geist({
@@ -14,6 +15,14 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 */
+const roboto = Roboto({
+  weight: ["300", "400", "500", "700"],
+  subsets: ["latin"],
+  display: "swap",
+  fallback: ["Helvetica", "Arial", "sans-serif"],
+  variable: "--font-roboto",
+})
+
 export const metadata: Metadata = {
   title: "Ojaswi's Portfolio",
   description: "Welcome to my portfolio! I am Ojaswi, a Full Stack Developer.",

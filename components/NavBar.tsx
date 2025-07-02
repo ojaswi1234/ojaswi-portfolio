@@ -13,7 +13,7 @@ export const NavBar = () => {
 
     gsap.registerPlugin(SplitText);
 
-    const name = SplitText.create("#title", {type: "words, chars"});
+    const name = SplitText.create(".title", {type: "words, chars"});
 
     gsap.from(name.chars, {
       duration: 0.5,
@@ -31,7 +31,7 @@ export const NavBar = () => {
   return (
     <div className="w-full h-14 px-0.5">
         <div className="w-full h-full flex justify-center sm:justify-between items-center sm:px-10 sticky top-0 bg-white dark:bg-accent  z-50 sm:rounded-t-xl">
-            <span className=" text-lg md:text-2xl font-bold text-gray-800 dark:text-white" id="title">Ojaswi Bhardwaj</span>
+            <span className=" text-lg md:text-2xl font-bold text-gray-800 dark:text-white title ">Ojaswi Bhardwaj</span>
             <nav className="space-x-10 hidden md:flex">
             <a href="#about"    id="navbar1" className="px-3 py-2 text-gray-600 dark:text-white hover:bg-indigo-500 hover:text-white rounded-xl dark:hover:bg-white dark:hover:text-black">About</a>
             <a href="#projects" id="navbar2" className="px-3 py-2 text-gray-600 dark:text-white hover:bg-indigo-500 hover:text-white rounded-xl dark:hover:bg-white dark:hover:text-black">Projects</a>

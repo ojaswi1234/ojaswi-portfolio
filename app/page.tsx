@@ -45,6 +45,9 @@ export default function Home() {
       morphSVG: "#square",
       ease: "power2.inOut",
     });
+
+   
+
   }, []);
 
   return (
@@ -92,8 +95,8 @@ export default function Home() {
               className="text-xl md:text-3xl  lg:text-[52px] font-bold text-center text-gray-800 dark:text-gray-200 mt-10  lg:mt-0 z-50 md:text-start"
               id="greeting"
             >
-              Hey there, This is <span className="text-blue-500 dark:text-transparent dark:bg-clip-text dark:bg-gradient-to-tl dark:from-red-500 dark:via-yellow-500 dark:to-yellow-500"> Ojaswi</span>
-              <span className="text-blue-500  dark:text-transparent dark:bg-clip-text dark:bg-gradient-to-t dark:from-red-500 dark:via-yellow-500 dark:to-yellow-500">!</span>
+              Hey there, This is <span  className="text-transparent bg-clip-text bg-gradient-to-tl from-cyan-500 via-lime-500 to-yellow-500  dark:text-transparent dark:bg-clip-text dark:bg-gradient-to-tl dark:from-red-500 dark:via-yellow-500 dark:to-red-500 "> Ojaswi !</span>
+              <span></span>
             </h1>
             <br />
             <p

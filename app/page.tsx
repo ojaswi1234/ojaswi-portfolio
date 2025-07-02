@@ -5,6 +5,8 @@ import { useEffect } from "react";
 import { gsap } from "gsap";
 import { SplitText } from "gsap/SplitText";
 import { MorphSVGPlugin } from "gsap/MorphSVGPlugin";
+import { SkillSection } from "@/components/skillSection";
+
 
 export default function Home() {
   useEffect(() => {
@@ -47,9 +49,9 @@ export default function Home() {
 
   return (
     <main className="w-screen h-screen flex p-5 justify-center items-center animated-gradient">
-      <div className="w-full h-full rounded-xl bg-white shadow-2xl dark:bg-accent overflow-y-auto scrollbar-hide">
+      <div className="w-full h-full rounded-xl bg-white shadow-2xl dark:bg-accent overflow-y-auto scrollHidden">
         <NavBar />
-        <div className="w-full h-fit flex flex-col gap-24 md:gap-44 sm:justify-evenly items-center sm:px-10 py-5 lg:flex-row-reverse lg:gap-0 mt-28 md:mt-52 lg:mt-44">
+        <div className=" w-full  flex flex-col gap-24 md:gap-44 sm:justify-evenly items-center sm:px-10 py-5 lg:flex-row-reverse lg:gap-0 mt-28 md:mt-52 lg:mt-44 lg:pb-64">
           <aside className="w-full sm:w-1/3 h-full flex justify-center items-center relative">
             {/* SVG for MorphSVGPlugin (optional, kept for consistency) */}
             <svg
@@ -90,19 +92,21 @@ export default function Home() {
               className="text-xl md:text-3xl  lg:text-[52px] font-bold text-center text-gray-800 dark:text-gray-200 mt-10  lg:mt-0 z-50 md:text-start"
               id="greeting"
             >
-              Hey there, This is <span className="text-blue-500"> Ojaswi</span>
-              <span className="text-blue-500">!</span>
+              Hey there, This is <span className="text-blue-500 dark:text-transparent dark:bg-clip-text dark:bg-gradient-to-tl dark:from-red-500 dark:via-yellow-500 dark:to-yellow-500"> Ojaswi</span>
+              <span className="text-blue-500  dark:text-transparent dark:bg-clip-text dark:bg-gradient-to-t dark:from-red-500 dark:via-yellow-500 dark:to-yellow-500">!</span>
             </h1>
             <br />
             <p
               className="font-normal text-center  lg:text-left text-xs md:text-xl  lg:text-lg text-gray-600 dark:text-gray-400 px-10 md:px-1 lg:p-0"
               id="about"
             >
-              I am a Full Stack Developer with a passion for building <span className="text-transparent bg-gradient-to-br from-blue-400 to-green-400 bg-clip-text">web applications</span>,<span className="text-transparent bg-gradient-to-br from-red-400 to-pink-400 bg-clip-text">native applications</span>.
+              I am a Full Stack Developer with a passion for building <span className="text-transparent bg-gradient-to-br from-blue-400 to-green-400 bg-clip-text">web applications</span>,<span className="text-transparent bg-gradient-to-br from-red-500 to-yellow-500 bg-clip-text">native applications</span>.
               I love to create beautiful and functional user interfaces.
             </p>
           </aside>
         </div>
+        <SkillSection />
+
       </div>
     </main>
   );

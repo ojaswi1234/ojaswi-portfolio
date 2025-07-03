@@ -52,13 +52,13 @@ export default function Home() {
 
   return (
     <main className="w-screen h-screen flex p-5 justify-center items-center animated-gradient">
-      <div className="w-full h-full rounded-xl bg-white shadow-2xl dark:bg-accent overflow-y-auto scrollHidden">
+      <div className="w-full h-full rounded-lg md:rounded-xl bg-white shadow-2xl dark:bg-accent overflow-y-auto scrollHidden">
         <NavBar />
-        <div className=" w-full  flex flex-col gap-24 md:gap-44 sm:justify-evenly items-center sm:px-10 py-5 lg:flex-row-reverse lg:gap-0 mt-28 md:mt-52 lg:mt-44 lg:pb-64">
-          <aside className="w-full sm:w-1/3 h-full flex justify-center items-center relative">
+        <div className="w-full lg:h-[100vh]  flex flex-col gap-24 md:gap-44 sm:justify-evenly items-center sm:px-10 py-5 lg:flex-row-reverse lg:gap-0 mt-28 md:mt-52 lg:mt-0 ">
+          <aside className="w-full md:w-1/3 h-1/2 lg:h-full flex justify-center items-center relative lg:mb-24">
             {/* SVG for MorphSVGPlugin (optional, kept for consistency) */}
             <svg
-              className="absolute size-52  lg:size-96"
+              className="size-52 lg:size-96"
               viewBox="0 0 100 100"
               aria-hidden="true"
             >
@@ -90,9 +90,9 @@ export default function Home() {
               className="shadow-2xl shadow-black dark:shadow-white size-52 sm:size-44 md:size-64 lg:size-96 rounded-full absolute"
             />
           </aside>
-          <aside className="w-full h-1/2 sm:w-1/2 sm:h-full ">
+          <aside className="w-full h-full flex flex-col justify-center sm:w-1/2 sm:h-full lg:mb-24">
             <h1
-              className="text-xl md:text-3xl  lg:text-[52px] font-bold text-center text-gray-800 dark:text-gray-200 mt-10  lg:mt-0 z-50 md:text-start"
+              className="text-xl md:text-3xl  lg:text-[52px] font-bold text-center text-gray-800 dark:text-gray-200 mt-10  lg:mt-0  md:text-start"
               id="greeting"
             >
               Hey there, This is <span  className="text-transparent bg-clip-text bg-gradient-to-tl from-cyan-500 via-lime-500 to-yellow-500  dark:text-transparent dark:bg-clip-text dark:bg-gradient-to-tl dark:from-red-500 dark:via-yellow-500 dark:to-red-500 "> Ojaswi !</span>

@@ -107,8 +107,6 @@ const StyledWrapper = styled.div`
      background: linear-gradient(to right, yellow, orange);
      box-shadow: 0 0 16px yellow;
     }
-  
-
-`;
+  `;
 
 export default Card;

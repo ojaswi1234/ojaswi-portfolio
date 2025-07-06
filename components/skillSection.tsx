@@ -34,8 +34,8 @@ export const SkillSection = () => {
             <Card name="GSAP" src="/skills/gsap.png" st="invert dark:invert-0"/>
 
             <Card name="JavaScript" src="/skills/JavaScript.png" st="invert sepia-75 saturate-150 dark:invert-0 dark:sepia-0 dark:saturate-0"/>
-
-            <Card name="TypeScript" src="/skills/Java.png" st="" />
+            <Card name="TypeScript" src="/skills/typescript.png" st="" />
+            <Card name="Java" src="/skills/Java.png" st="" />
             <Card name="React" src="/skills/react.png" st=""/>
             <Card name="SocketIO" src="/skills/Socket.io.png" st=""/>
 

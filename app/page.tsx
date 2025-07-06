@@ -38,7 +38,7 @@ export default function Home() {
       opacity: 0,
       y: 50,
       ease: "steps(5)",
-      stagger: 0.05,
+      stagger: 0.07,
       delay: 1,
       onComplete: () => {
         name.revert();

@@ -46,14 +46,16 @@
 
 .animated-gradient {
   background: radial-gradient(circle , rgb(133, 255, 255), rgb(144, 255, 144),rgb(133, 255, 255), rgb(144, 255, 144));
-  background-size: 600% 600%;
-  animation: gradient 10s alternate infinite;
+  background-size: 400% 400%;
+  animation: gradient 15s ease-in-out infinite;
+  will-change: background-position;
 }
 
 .dark .animated-gradient {
   background: radial-gradient(circle , yellow, rgb(246, 76, 76), yellow, rgb(246, 76, 76));
-  background-size: 600% 600%;
-  animation: gradient 10s alternate infinite;
+  background-size: 400% 400%;
+  animation: gradient 15s ease-in-out infinite;
+  will-change: background-position;
 }
 
 

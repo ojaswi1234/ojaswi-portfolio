@@ -18,38 +18,28 @@ const Card = (props: { name: string; src: string; st : string; }) => {
     <div
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      className="card"
+      className={`card ${hovered ? 'hovered' : ''}`}
     >
+      
       <h2
-        className={`text-white dark:text-black font-bold text-xl ${myFont.variable}`}
+        className={`card-title text-white dark:text-black font-bold ${myFont.variable} ${hovered ? 'hovered' : ''}`}
         style={{
-          transform: hovered ? 'translateY(20px)' : 'translateY(-70px)',
-          transition: 'transform 0.3s, font-size 0.3s',
           fontFamily: 'var(--font-edu)',
-          fontSize: hovered ? '1.3rem' : '1.9rem',
         }}
       >
         {props.name}
       </h2>
-     <div className="blurredContainer"
-     style={{ 
-      backgroundColor: hovered ? "white" : "transparent",
-      opacity: hovered ? 1 : 0,
-      transition: 'opacity 0.3s',
-     }}
-     ></div>
+     <div className={`blurredContainer ${hovered ? 'hovered' : ''}`}></div>
+     
       <Image
         src={props.src}
         alt={props.name}
-        width={130}
-        height={130}
-        className={props.st}
-        style={{
-          transform: hovered ? 'translateY(0)' : 'translateY(-20px)',
-          transition: 'transform 0.3s, opacity 0.3s',
-          opacity: hovered ? 1 : 0,
-          
-        }}
+        width={120}
+        height={120}
+        className={`card-image ${props.st} ${hovered ? 'hovered' : ''}`}
+        loading='lazy'
+        draggable="false"
+        onDragStart={(e) => e.preventDefault()}
       />
     </div>
     </div>
@@ -66,9 +56,10 @@ const StyledWrapper = styled.div`
     background-color: slate;
     padding: 20px;
     border-radius: 10px;
+    
 }
     .card-container:hover .card {
-    transform: translateY(-10px);
+    transform: translate3d(0, -10px, 0);
     z-index: 1;
     box-shadow: 0 0 16px black;
   }
@@ -86,27 +77,76 @@ const StyledWrapper = styled.div`
     background-color: #1e293b; /* Dark slate */
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s, box-shadow 0.3s;
+    transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
     cursor: pointer;
+    animation: fadeIn 0.5s ease-in-out;
+    will-change: transform, box-shadow;
   }
     
   .dark & .card {
     background-color: #f8fafc; /* Light slate */
   }
-    .blurredContainer {
+
+  /* Optimized title animations */
+  .card-title {
+    transform: translate3d(0, -70px, 0);
+    font-size: 1.5rem;
+    transition: transform 0.2s ease-out, font-size 0.2s ease-out;
+    will-change: transform, font-size;
+  }
+
+  .card-title.hovered {
+    transform: translate3d(0, 20px, 0);
+    font-size: 1rem;
+  }
+
+  /* Optimized image animations */
+  .card-image {
+    transform: translate3d(0, -20px, 0);
+    opacity: 0;
+    transition: transform 0.2s ease-out, opacity 0.2s ease-out;
+    will-change: transform, opacity;
+  }
+
+  .card-image.hovered {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+
+  /* Simplified blur container */
+  .blurredContainer {
     position: absolute;
     top: 20%;
     left: 30%;
     width: 40%;
     height: 40%;
-    filter: blur(40px);
-    background: linear-gradient(to right, yellow, cyan); /* Optional: semi-transparent background */
-
+    filter: blur(20px);
+    background: linear-gradient(to right, yellow, cyan);
+    opacity: 0;
+    transition: opacity 0.2s ease-out;
+    will-change: opacity;
   }
-    .dark & .blurredContainer{
-     background: linear-gradient(to right, yellow, orange);
-     box-shadow: 0 0 16px yellow;
+
+  .blurredContainer.hovered {
+    opacity: 1;
+    background-color: white;
+  }
+    
+  .dark & .blurredContainer.hovered {
+    background: linear-gradient(to right, yellow, orange);
+    box-shadow: 0 0 8px yellow;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translate3d(0, 20px, 0);
     }
+    to {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+  }
   `;
 
 export default Card;

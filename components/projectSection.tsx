@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 export const ProjectSection = () => {
   return (
-    <section className="w-full min-h-screen flex flex-col justify-center items-center py-12 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-zinc-900">
+    <section className="w-full min-h-screen flex flex-col justify-center items-center py-12 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-zinc-900" id="projects">
       <div className="w-full max-w-7xl flex flex-col items-center gap-8">
         <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 dark:text-gray-100">
           My Projects

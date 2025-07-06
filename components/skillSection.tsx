@@ -19,7 +19,7 @@ export const SkillSection = () => {
         <p className="text-sm md:text-base lg:text-lg text-gray-500 dark:text-gray-300 mb-10 text-center px-5">
           Here are some of the skills and technologies I have worked with.
         </p>
-         <nav className="w-fit max-w-[90vw] min-w-[300px] h-fit  flex flex-row flex-wrap justify-center items-center justify-self-center place-self-center  gap-2 border-2 rounded-full py-3 px-4 mx-auto">
+         <nav className="w-fit max-w-[90vw] min-w-[300px] h-fit  flex flex-row flex-wrap justify-center items-center justify-self-center place-self-center  gap-2 border-2 rounded-full py-3 px-4 ">
             <NavButton name="Lang/Libs" onClick={() => handleSectionChange('langlibs')} />
             <NavButton name="Frameworks" onClick={() => handleSectionChange('frameworks')} />
             <NavButton name="DataBase" onClick={() => handleSectionChange('database')} />

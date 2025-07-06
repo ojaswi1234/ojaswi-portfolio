@@ -56,7 +56,7 @@ export default function Home() {
 
   return (
     <main className="w-screen h-screen flex p-5 justify-center items-center animated-gradient">
-      <div className="w-full h-full rounded-lg md:rounded-xl bg-white shadow-2xl dark:bg-accent overflow-y-auto scrollHidden">
+      <div className="w-full h-full rounded-lg md:rounded-xl bg-white shadow-2xl dark:bg-zinc-900 opacity-100 dark:opacity-0 transition-opacity duration-200 overflow-y-auto scrollHidden">
         <NavBar />
         <div className="w-full lg:h-[100vh] flex flex-col gap-24 md:gap-44 sm:justify-evenly items-center sm:px-10 py-5 lg:flex-row-reverse lg:gap-0 mt-28 md:mt-52 lg:mt-0 ">
           <aside className="w-full md:w-1/3 h-1/2 lg:h-full flex justify-center items-center relative lg:mb-24">

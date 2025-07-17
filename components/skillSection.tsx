@@ -49,7 +49,7 @@ export const SkillSection = () => {
 
           </div>
           <div id="database" className={`w-full h-fit grid place-self-center grid-cols-1 lg:grid-cols-4 lg:col-span-1 justify-items-center justify-center gap-5 items-center transition-opacity duration-200 ${activeSection === 'database' ? 'opacity-100' : 'opacity-0 hidden'}`}>
-            <Card name="MongoDB" src="/skills/mongodb.png" st=""></Card>
+            <Card name="MongoDB" src="/skills/mongodb.png" st="invert dark:invert-0"></Card>
             
             <Card name="MySQL" src="/skills/mysql.png" st=""></Card>
            

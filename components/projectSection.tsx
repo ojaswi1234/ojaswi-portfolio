@@ -53,8 +53,8 @@ export const ProjectSection = () => {
               <aside className="w-full md:w-1/2 flex justify-center items-center p-4">
                 <div className="relative w-full aspect-square max-w-xs overflow-hidden rounded-lg">
                   <Image
-                    src="/projects/sleepsense.png"
-                    alt="SleepSense project preview"
+                    src="/projects/notes.png"
+                    alt="Just Notes web Extension project preview"
                     fill
                     className="object-cover transition-transform duration-300 ease-in-out hover:scale-105"
                     sizes="(max-width: 768px) 100vw, 50vw"
@@ -85,8 +85,8 @@ export const ProjectSection = () => {
               <aside className="w-full md:w-1/2 flex justify-center items-center p-4">
                 <div className="relative w-full aspect-square max-w-xs overflow-hidden rounded-lg">
                   <Image
-                    src="/projects/sleepsense.png"
-                    alt="SleepSense project preview"
+                    src="/projects/chess.png"
+                    alt="chess preview"
                     fill
                     className="object-cover transition-transform duration-300 ease-in-out hover:scale-105"
                     sizes="(max-width: 768px) 100vw, 50vw"
@@ -117,8 +117,8 @@ export const ProjectSection = () => {
               <aside className="w-full md:w-1/2 flex justify-center items-center p-4">
                 <div className="relative w-full aspect-square max-w-xs overflow-hidden rounded-lg">
                   <Image
-                    src="/projects/sleepsense.png"
-                    alt="SleepSense project preview"
+                    src="/projects/moviespot.png"
+                    alt="Movie Spot project preview"
                     fill
                     className="object-cover transition-transform duration-300 ease-in-out hover:scale-105"
                     sizes="(max-width: 768px) 100vw, 50vw"
@@ -129,7 +129,7 @@ export const ProjectSection = () => {
               <aside className="w-full md:w-1/2 flex flex-col justify-center gap-4 p-6">
                 <h2 className="text-xl md:text-3xl   bg-gradient-to-bl from-cyan-500 via-lime-500 to-yellow-500 bg-clip-text dark:bg-gradient-to-bl dark:from-red-500 dark:via-yellow-500 dark:to-red-500 text-transparent dark:text-transparent font-bold">Movie Spot</h2>
                 <p className="text-sm md:text-base text-gray-600 dark:text-gray-300 leading-relaxed">
-                  A movie discovery platform that allows users to search for movies, view details, and get recommendations based on their preferences.
+                  A movie discovery platform that allows users to search for movies, view details, and get recommendations based on their preferences. (Integrating AI for personalized recommendations)
                 </p>
                 <div className="flex gap-4 mt-4">
                   <Link

@@ -3,16 +3,6 @@ import { useState, useRef } from "react";
 import { FaLinkedin, FaGithub, FaEnvelope } from "react-icons/fa";
 import emailjs from "emailjs-com";
 
-declare global {
-  interface ImportMeta {
-    env: {
-      EMAILJS_SERVICE_ID: string;
-      EMAILJS_TEMPLATE_ID: string;
-      EMAILJS_PUBLIC_KEY: string;
-    };
-  }
-}
-
 export function ContactSection() {
   const [formData, setFormData] = useState({
     name: "",
@@ -32,11 +22,13 @@ export function ContactSection() {
     e.preventDefault();
 
     if (form.current) {
-      emailjs.sendForm(
-        import.meta.env.EMAILJS_SERVICE_ID,
-        import.meta.env.EMAILJS_TEMPLATE_ID,
-        form.current,
-        import.meta.env.EMAILJS_PUBLIC_KEY)
+      emailjs
+        .sendForm(
+          process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
+          process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
+          form.current,
+          process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
+        )
         .then(
           () => {
             console.log("SUCCESS!");
@@ -46,7 +38,6 @@ export function ContactSection() {
           (error) => {
             console.log("FAILED...", error.text);
             alert("Failed to send message. Please try again later.");
-
           }
         );
     }

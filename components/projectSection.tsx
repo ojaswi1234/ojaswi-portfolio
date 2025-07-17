@@ -150,8 +150,8 @@ export const ProjectSection = () => {
               <aside className="w-full md:w-1/2 flex justify-center items-center p-4">
                 <div className="relative w-full aspect-square max-w-xs overflow-hidden rounded-lg">
                   <Image
-                    src="/projects/sleepsense.png"
-                    alt="SleepSense project preview"
+                    src="/projects/todo.png"
+                    alt="TODO Flutter app preview"
                     fill
                     className="object-cover transition-transform duration-300 ease-in-out hover:scale-105"
                     sizes="(max-width: 768px) 100vw, 50vw"

@@ -130,7 +130,7 @@ export default function Home() {
   ref={aboutRef}
   className="font-normal text-center lg:text-left text-xs md:text-xl lg:text-lg mt-3 text-gray-600 dark:text-gray-400 px-10 md:px-1 lg:p-0"
 >
-  I'm a Full Stack Developer crafting{" "}
+  I&apos;m a Full Stack Developer crafting{" "}
   <span className="text-transparent bg-gradient-to-br from-blue-400 to-green-400 bg-clip-text">
     web
   </span>{" "}

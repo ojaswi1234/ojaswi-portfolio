@@ -9,12 +9,9 @@ export const TerminalSection = () => {
   const inputBuffer = useRef<string>(''); // Track user input
 
   useEffect(() => {
-    if (!terminalRef.current) return;
-
     const setupTerminal = async () => {
       const { WebLinksAddon } = await import('@xterm/addon-web-links');
 
-      // Initialize Terminal
       term.current = new Terminal({
         cursorBlink: true,
         rows: 20,
@@ -30,6 +27,11 @@ export const TerminalSection = () => {
       const webLinksAddon = new WebLinksAddon();
       term.current.loadAddon(webLinksAddon);
 
+      if (!terminalRef.current) {
+        console.warn("Terminal container not found.");
+        return;
+      }
+
       term.current.open(terminalRef.current);
       term.current.focus();
 
@@ -40,7 +42,6 @@ export const TerminalSection = () => {
       term.current.writeln(' 🧭  This space helps you explore who I am and what I do.');
       term.current.writeln(' \x1b[1;93m✨ Have fun exploring! Type \x1b[1;92mhelp\x1b[1;93m to begin!\x1b[0m 🚀');
       term.current.writeln('');
-
       term.current.writeln(' \x1b[1;97m🔗  Links:\x1b[0m');
       term.current.writeln('   🐙 GitHub   : \x1b[1;94mhttps://github.com/Ojaswi1234\x1b[0m');
       term.current.writeln('   💼 LinkedIn : \x1b[1;94mhttps://www.linkedin.com/in/ojaswi-bhardwaj-962393281/\x1b[0m');
@@ -62,7 +63,7 @@ export const TerminalSection = () => {
             term.current.writeln('');
 
             if (command === '') {
-              
+              // No-op
             } else if (command === 'help') {
               term.current.writeln('\x1b[4mCommand     Description\x1b[0m');
               term.current.writeln('about       Shows information about the developer');
@@ -74,22 +75,19 @@ export const TerminalSection = () => {
               term.current.writeln('cls         Clears the terminal screen');
             } else if (command === 'cls') {
               term.current.clear();
-              
-            } else if(command === 'about'){
+            } else if (command === 'about') {
               term.current.writeln('');
               term.current.writeln(' \x1b[1;96m👋 Hey there! I\'m Ojaswi Bhardwaj\x1b[0m 💻');
               term.current.writeln(' 📂 Welcome to my interactive portfolio terminal!');
               term.current.writeln(' 🧭 This space helps you explore who I am and what I do.');
               term.current.writeln(' \x1b[1;93m✨ Have fun exploring! Type \x1b[1;92mhelp\x1b[1;93m to begin!\x1b[0m 🚀');
               term.current.writeln('');
-        
               term.current.writeln(' \x1b[1;97m🔗  Links:\x1b[0m');
               term.current.writeln('   🐙 GitHub   : \x1b[1;94mhttps://github.com/Ojaswi1234\x1b[0m');
               term.current.writeln('   💼 LinkedIn : \x1b[1;94mhttps://www.linkedin.com/in/ojaswi-bhardwaj-962393281/\x1b[0m');
               term.current.writeln('   📧 Email    : \x1b[1;94mojaswideep2020@gmail.com\x1b[0m');
               term.current.writeln('');
-            } 
-            else {
+            } else {
               term.current.writeln('\x1b[31mUnknown Command\x1b[0m');
             }
 
@@ -106,7 +104,6 @@ export const TerminalSection = () => {
             break;
 
           default:
-            // Printable characters
             if (e >= ' ' && e <= '~') {
               inputBuffer.current += e;
               term.current.write(e);
@@ -115,7 +112,9 @@ export const TerminalSection = () => {
       });
     };
 
-    setupTerminal();
+    if (terminalRef.current) {
+      setupTerminal();
+    }
 
     return () => {
       term.current?.dispose();
@@ -124,7 +123,6 @@ export const TerminalSection = () => {
 
   return (
     <div
-    
       ref={terminalRef}
       style={{
         width: '80%',

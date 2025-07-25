@@ -33,19 +33,10 @@ export const ProjectSection = () => {
                 <p className="text-sm md:text-base text-gray-600 dark:text-gray-300 leading-relaxed">
                   A sleep tracking app that helps users monitor their sleep patterns and improve their sleep quality.
                 </p>
-                <div className="flex gap-4 mt-4">
-                  <Link
-                    href="https://github.com/ojaswi1234/PHP_PROJECT.git"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="bg-gradient-to-bl from-cyan-500 via-lime-500 to-yellow-500 dark:from-red-500 dark:via-yellow-500 dark:to-red-500 text-white dark:text-black font-medium transition-colors duration-200 px-4 py-2 rounded-lg text-center"
-                  >
-                    GitHub
-                  </Link>
-                </div>
+               
               </aside>
             </div>
-service_gkuxcxc
+
 
           </div>
            <div className="w-full bg-white dark:bg-zinc-800 rounded-xl shadow-lg overflow-hidden transition-all duration-300 ease-in-out hover:shadow-xl">
@@ -67,16 +58,7 @@ service_gkuxcxc
                 <p className="text-sm md:text-base text-gray-600 dark:text-gray-300 leading-relaxed">
                   A web extension that allows users to take quick notes and save them for later reference, enhancing productivity and organization.
                 </p>
-                <div className="flex gap-4 mt-4">
-                  <Link
-                    href="https://github.com/ojaswi1234/notes_maker_ext.git"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="bg-gradient-to-bl from-cyan-500 via-lime-500 to-yellow-500 dark:from-red-500 dark:via-yellow-500 dark:to-red-500 text-white dark:text-black font-medium transition-colors duration-200 px-4 py-2 rounded-lg text-center "
-                  >
-                    GitHub
-                  </Link>
-                </div>
+               
               </aside>
             </div>
           </div>
@@ -99,16 +81,7 @@ service_gkuxcxc
                 <p className="text-sm md:text-base text-gray-600 dark:text-gray-300 leading-relaxed">
                   A real-time multiplayer chess game that allows two players to compete against each other, featuring a user-friendly interface and smooth gameplay.
                 </p>
-                <div className="flex gap-4 mt-4">
-                  <Link
-                    href="https://github.com/ojaswi1234/Sheryians_backend_course/tree/main/D10"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="bg-gradient-to-bl from-cyan-500 via-lime-500 to-yellow-500 dark:from-red-500 dark:via-yellow-500 dark:to-red-500 text-white dark:text-black font-medium transition-colors duration-200 px-4 py-2 rounded-lg text-center"
-                  >
-                    GitHub
-                  </Link>
-                </div>
+               
               </aside>
             </div>
           </div>
@@ -132,14 +105,7 @@ service_gkuxcxc
                   A movie discovery platform that allows users to search for movies, view details, and get recommendations based on their preferences. (Integrating AI for personalized recommendations)
                 </p>
                 <div className="flex gap-4 mt-4">
-                  <Link
-                    href="https://github.com/ojaswi1234/MOVIE_SPOT.git"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="bg-gradient-to-bl from-cyan-500 via-lime-500 to-yellow-500 dark:from-red-500 dark:via-yellow-500 dark:to-red-500 text-white dark:text-black font-medium transition-colors duration-200 px-4 py-2 rounded-lg text-center"
-                  >
-                    GitHub
-                  </Link>
+                
                 </div>
               </aside>
             </div>
@@ -165,20 +131,13 @@ service_gkuxcxc
                   A simple and intuitive to-do list flutter application that helps users manage their tasks efficiently, with features like task categorization and reminders.
                 </p>
                 <div className="flex gap-4 mt-4">
-                  <Link
-                    href="https://github.com/ojaswi1234/TO-DO-app-flutter-.git"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="bg-gradient-to-bl from-cyan-500 via-lime-500 to-yellow-500 dark:from-red-500 dark:via-yellow-500 dark:to-red-500 text-white dark:text-black font-medium transition-colors duration-200 px-4 py-2 rounded-lg text-center"
-                  >
-                    GitHub
-                  </Link>
+                 
                 </div>
               </aside>
             </div>
           </div>
           {/* Placeholder for additional project cards */}
-          {/* Add more project cards here with similar structure */}
+      
         </div>
       </div>
     </section>

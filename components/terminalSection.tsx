@@ -44,8 +44,7 @@ export const TerminalSection = () => {
       term.current.writeln('');
       term.current.writeln(' \x1b[1;97m🔗  Links:\x1b[0m');
       term.current.writeln('   🐙 GitHub   : \x1b[1;94mhttps://github.com/Ojaswi1234\x1b[0m');
-      term.current.writeln('   💼 LinkedIn : \x1b[1;94mhttps://www.linkedin.com/in/ojaswi-bhardwaj-962393281/\x1b[0m');
-      term.current.writeln('   📧 Email    : \x1b[1;94mojaswideep2020@gmail.com\x1b[0m');
+    
       term.current.writeln('');
 
       const prompt = () => {
@@ -67,15 +66,31 @@ export const TerminalSection = () => {
             } else if (command === 'help') {
               term.current.writeln('\x1b[4mCommand     Description\x1b[0m');
               term.current.writeln('about       Shows information about the developer');
-              term.current.writeln('sun         Prints a sun-themed message');
-              term.current.writeln('moon        Prints a moon-themed message');
               term.current.writeln('linkedin    Opens LinkedIn profile link');
               term.current.writeln('github      Opens GitHub profile link');
               term.current.writeln('email       Shows contact email address');
+              term.current.writeln("projects    Shows a list of My Project ");
               term.current.writeln('cls         Clears the terminal screen');
             } else if (command === 'cls') {
               term.current.clear();
-            } else if (command === 'about') {
+
+            } else if(command === 'linkedin'){
+              window.open('https://www.linkedin.com/in/ojaswi-bhardwaj-962393281/', '_blank');
+            }
+            else if(command === 'github'){
+              window.open('https://github.com/Ojaswi1234', '_blank');
+            }
+            else if(command === 'email'){
+              window.open('mailto:ojaswideep2020@gmail.com', '_blank');
+            }
+            else if (command === 'projects') {
+              term.current.writeln('My Projects');
+              term.current.writeln('  1. ' + 'SleepSense - A sleep tracking app that helps users monitor their sleep patterns and improve their sleep quality. [\x1b[1;94mhttps://www.github.com/ojaswi1234/SleepSense\x1b[0m]');
+              term.current.writeln('\n  2. ' + 'Just Notes - A web extension that allows users to take quick notes and save them for later reference, enhancing productivity and organization. [\x1b[1;94mhttps://www.github.com/ojaswi1234/JustNotes\x1b[0m]');
+              term.current.writeln('\n  3. ' + '2 Player Chess Game - A real-time multiplayer chess game that allows two players to compete against each other, featuring a user-friendly interface and smooth gameplay. [\x1b[1;94mhttps://www.github.com/ojaswi1234/chessgame_with_chatting\x1b[0m]');
+              term.current.writeln('\n  4. ' + 'Movie Spot - A movie discovery platform that allows users to search for movies, view details, and get recommendations based on their preferences. [\x1b[1;94mhttps://www.github.com/ojaswi1234/MovieSpot\x1b[0m]');
+            }
+            else if (command === 'about') {
               term.current.writeln('');
               term.current.writeln(' \x1b[1;96m👋 Hey there! I\'m Ojaswi Bhardwaj\x1b[0m 💻');
               term.current.writeln(' 📂 Welcome to my interactive portfolio terminal!');

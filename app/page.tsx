@@ -159,6 +159,7 @@ export default function Home() {
             </button>
           </aside>
         </div>
+        
 
         {/* Terminal Section */}
         

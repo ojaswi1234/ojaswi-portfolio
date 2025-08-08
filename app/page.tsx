@@ -3,8 +3,6 @@ import { NavBar } from "@/components/NavBar";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
-import { SplitText } from "gsap/SplitText";
-import { MorphSVGPlugin } from "gsap/MorphSVGPlugin";
 import { SkillSection } from "@/components/skillSection";
 import { ProjectSection } from "@/components/projectSection";
 import { ContactSection } from "@/components/contactus";
@@ -28,51 +26,85 @@ export default function Home() {
   }, [isVisible]);
 
   useEffect(() => {
-    gsap.registerPlugin(MorphSVGPlugin, SplitText);
+    if (typeof window === 'undefined') return;
 
-    const tl = gsap.timeline();
-    tl.fromTo(
-      photo1Ref.current,
-      { opacity: 1, scale: 1 },
-      { opacity: 0, scale: 1.2, duration: 2, ease: "power2.inOut", delay: 1 }
-    ).fromTo(
-      photo2Ref.current,
-      { opacity: 0, scale: 0.8 },
-      { opacity: 1, scale: 1, duration: 2, ease: "power2.inOut" },
-      "<"
-    );
+    (async () => {
+      type SplitTextCtor = new (target: Element | string, options?: { type?: string }) => { chars: Element[]; revert: () => void };
+      let SplitTextPlugin: unknown | null = null;
+      let splitCtor: SplitTextCtor | null = null;
+      let MorphSVGPlugin: unknown | null = null;
+      try {
+        const mod = await import('gsap/SplitText');
+        // prefer named export, else default
+        const maybe = (mod as unknown as { SplitText?: unknown; default?: unknown });
+        SplitTextPlugin = maybe.SplitText ?? maybe.default ?? null;
+        if (SplitTextPlugin) {
+          gsap.registerPlugin(SplitTextPlugin as object);
+          splitCtor = SplitTextPlugin as unknown as SplitTextCtor;
+        }
+      } catch {
+        // optional plugin not available
+      }
+      try {
+        const mod = await import('gsap/MorphSVGPlugin');
+        const maybe = (mod as unknown as { MorphSVGPlugin?: unknown; default?: unknown });
+        MorphSVGPlugin = maybe.MorphSVGPlugin ?? maybe.default ?? null;
+        if (MorphSVGPlugin) gsap.registerPlugin(MorphSVGPlugin as object);
+      } catch {
+        // optional plugin not available
+      }
 
-    const split = SplitText.create(textContainerRef.current, { type: "words, chars" });
-    gsap.from(split.chars, {
-      duration: 1,
-      opacity: 0,
-      y: 50,
-      ease: "steps(6)",
-      stagger: 0.07,
-      delay: 1,
-      onComplete: () => split.revert(),
-    });
+      const tl = gsap.timeline();
+      tl.fromTo(
+        photo1Ref.current,
+        { opacity: 1, scale: 1 },
+        { opacity: 0, scale: 1.2, duration: 2, ease: "power2.inOut", delay: 1 }
+      ).fromTo(
+        photo2Ref.current,
+        { opacity: 0, scale: 0.8 },
+        { opacity: 1, scale: 1, duration: 2, ease: "power2.inOut" },
+        "<"
+      );
 
-    gsap.fromTo(aboutRef.current, { opacity: 0 }, { opacity: 1, delay: 1.5 });
-    gsap.to(circleRef.current, { duration: 2, morphSVG: "#square", ease: "power2.inOut" });
-    gsap.fromTo(toggleRef.current, {opacity: 0, x: 200}, {opacity: 1,x: 0, duration:2,  delay: 2, ease: "bounce.out"});
+      if (splitCtor && textContainerRef.current) {
+        const split = new splitCtor(textContainerRef.current, { type: "words, chars" });
+        gsap.from(split.chars, {
+          duration: 1,
+          opacity: 0,
+          y: 50,
+          ease: "steps(6)",
+          stagger: 0.07,
+          delay: 1,
+          onComplete: () => split.revert(),
+        });
+      } else if (textContainerRef.current) {
+        gsap.from(textContainerRef.current, { opacity: 0, y: 20, duration: 0.8, ease: "power2.out", delay: 0.8 });
+      }
 
-    const handleClick = () => {
-      setIsVisible(prev => {
-        const next = !prev;
-        isVisibleRef.current = next;
-        return next;
-      });
-      
-    };
+      gsap.fromTo(aboutRef.current, { opacity: 0 }, { opacity: 1, delay: 1.5 });
 
-    const btn = toggleRef.current;
-    if (btn) btn.addEventListener("click", handleClick);
-    return () => {
-      if (btn) btn.removeEventListener("click", handleClick);
-      
-    };
-  
+      if (MorphSVGPlugin && circleRef.current) {
+        gsap.to(circleRef.current, { duration: 2, morphSVG: { shape: "M50 10 L90 50 L50 90 L10 50 Z" }, ease: "power2.inOut" });
+      } else if (circleRef.current) {
+        gsap.fromTo(circleRef.current, { scale: 0.96 }, { scale: 1, transformOrigin: "50% 50%", yoyo: true, repeat: 1, duration: 1.2 });
+      }
+
+      gsap.fromTo(toggleRef.current, {opacity: 0, x: 200}, {opacity: 1,x: 0, duration:2,  delay: 2, ease: "bounce.out"});
+
+      const handleClick = () => {
+        setIsVisible(prev => {
+          const next = !prev;
+          isVisibleRef.current = next;
+          return next;
+        });
+      };
+
+      const btn = toggleRef.current;
+      if (btn) btn.addEventListener("click", handleClick);
+      return () => {
+        if (btn) btn.removeEventListener("click", handleClick);
+      };
+    })();
   }, []);
 
   const close = () => {
@@ -83,7 +115,7 @@ export default function Home() {
     <main className="w-screen h-screen flex p-5 justify-center items-center animated-gradient overflow-hidden ">
       <div className="w-full h-full rounded-lg bg-white dark:bg-zinc-900 shadow-2xl overflow-y-auto scrollHidden transition-opacity">
         <NavBar />
-        <div className="w-full lg:h-[100vh] flex flex-col gap-24 md:gap-44 sm:justify-evenly items-center sm:px-10 py-5 lg:flex-row-reverse lg:gap-0 mt-28 md:mt-52 lg:mt-0">
+        <div id="greeting" className="w-full lg:h-[100vh] flex flex-col gap-24 md:gap-44 sm:justify-evenly items-center sm:px-10 py-5 lg:flex-row-reverse lg:gap-0 mt-28 md:mt-52 lg:mt-0">
           {/* Profile & animation aside */}
           <aside className="w-full md:w-1/3 h-1/2 lg:h-full flex justify-center items-center relative lg:mb-24">
             <svg className="size-52 lg:size-96" viewBox="0 0 100 100" aria-hidden="true">
@@ -130,24 +162,12 @@ export default function Home() {
   ref={aboutRef}
   className="font-normal text-center lg:text-left text-xs md:text-xl lg:text-lg mt-3 text-gray-600 dark:text-gray-400 px-10 md:px-1 lg:p-0"
 >
-  I&apos;m a Full Stack Developer crafting{" "}
-  <span className="text-transparent bg-gradient-to-br from-blue-400 to-green-400 bg-clip-text">
-    web
-  </span>{" "}
-  &{" "}
-  <span className="text-transparent bg-gradient-to-br from-red-500 to-yellow-500 bg-clip-text">
-    mobile
-  </span>{" "}
-  apps with intuitive UI.<br/>Explore my{" "}
-  <span className="text-transparent bg-gradient-to-br from-purple-400 to-pink-400 bg-clip-text">
-    portfolio
-  </span>{" "}
-  or try the{" "}
-  <span className="text-transparent bg-gradient-to-br from-teal-400 to-blue-400 bg-clip-text">
-    shell
-  </span>
-  !
+  Full‑stack developer focused on React + Node. I build fast, accessible web & mobile apps with intuitive UI.
 </p>
+            <div className="mt-4 flex flex-wrap gap-3">
+              <a href="#projects" className="px-4 py-2 rounded-lg bg-indigo-600 text-white hover:bg-indigo-500">View projects</a>
+              <a href="#contact" className="px-4 py-2 rounded-lg border border-indigo-300 dark:border-indigo-700 text-indigo-700 dark:text-indigo-300 hover:bg-indigo-50 dark:hover:bg-indigo-900/30">Hire me</a>
+            </div>
             <button
               ref={toggleRef}
               className="w-fit p-2 lg:p-3 rounded-lg bg-gradient-to-r from-cyan-500 to-lime-500 dark:from-red-500 dark:to-yellow-500 text-white dark:text-black mt-5 glow cursor-pointer flex justify-center items-center"
@@ -171,7 +191,7 @@ export default function Home() {
         >
 
           <div  className="bg-zinc-950 lg:w-4/5 overflow-hidden p-2 rounded-t-2xl"> 
-            <button onClick={close} className="close-btn w-3 h-3 cursor-pointer flex justify-self-start overflow-hidden bg-red-500 rounded-full flex justify-center items-center text-xs  text-transparent hover:text-gray-700"><span className="flex justify-self-center place-self-center mb-1">x</span></button>
+            <button onClick={close} className="close-btn w-3 h-3 cursor-pointer justify-self-start overflow-hidden bg-red-500 rounded-full flex justify-center items-center text-xs  text-transparent hover:text-gray-700"><span className="flex justify-self-center place-self-center mb-1">x</span></button>
           </div>
         
           <TerminalSection />
@@ -180,12 +200,13 @@ export default function Home() {
         {/* Other Sections */}
         <div className="w-full h-fit bg-zinc-100 dark:bg-zinc-800 p-10">
           <h1 className="text-center text-3xl font-semibold">My Github Stats & Contribution</h1>
-          <img
+          <Image
             src="https://github-readme-stats.vercel.app/api?username=Ojaswi1234&show_icons=true&theme=gruvbox&hide_border=true&count_private=true"
             alt="GitHub Stats"
             width={500}
             height={200}
             className="mx-auto my-5 rounded-xl border border-transparent"
+            unoptimized
           />
         </div>
 

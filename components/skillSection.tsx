@@ -13,13 +13,13 @@ export const SkillSection = () => {
     <div className="w-full h-fit flex flex-col items-center justify-center gap-10 p-5 ">
       
       <div className="w-full flex flex-col justify-center items-center ">
-        <h1 className="text-lg md:text-xl lg:text-3xl font-semibold text-black dark:text-gray-100 mb-5">
-        Skills  & Technologies
-        </h1>
-        <p className="text-sm md:text-base lg:text-lg text-gray-500 dark:text-gray-300 mb-10 text-center px-5">
-          Here are some of the skills and technologies I have worked with.
-        </p>
-         <nav className="w-fit max-w-[90vw] min-w-[300px] h-fit  flex flex-row flex-wrap justify-center items-center justify-self-center place-self-center  gap-2 border-2 rounded-full py-3 px-4 ">
+        <div className="w-full flex flex-col items-center justify-center mb-6">
+          <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white mb-2 tracking-tight">
+            Skills & Technologies
+          </h1>
+         
+        </div>
+         <nav className="w-fit max-w-[90vw] min-w-[300px] h-fit  flex flex-row flex-wrap justify-center items-center justify-self-center place-self-center  gap-2 border-2 rounded-full py-3 px-4 mt-2 mb-2">
             <NavButton name="Lang/Libs" onClick={() => handleSectionChange('langlibs')} />
             <NavButton name="Frameworks" onClick={() => handleSectionChange('frameworks')} />
             <NavButton name="DataBase" onClick={() => handleSectionChange('database')} />

@@ -122,6 +122,7 @@ export function ContactSection() {
                 Send Message
               </button>
             </form>
+             <p className="text-xs text-gray-500 dark:text-gray-400">I&apos;ll respond within 48 hours. </p>
           </div>
           {/* Social Media Links */}
           <div className="w-full lg:w-1/3 flex flex-col items-center lg:items-start">

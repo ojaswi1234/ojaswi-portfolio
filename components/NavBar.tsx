@@ -2,38 +2,61 @@
 import React, { useEffect, useState } from 'react'
 import { ModeToggle } from './darkButton'
 import { gsap } from 'gsap';
-import { SplitText } from 'gsap/SplitText';
 
 export const NavBar = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
   useEffect(() => {
+    // Guard client-only animations
+    if (typeof window === 'undefined') return;
+
     gsap.fromTo(".w-full", { opacity: 0 }, { opacity: 1, duration: 1 });
     gsap.fromTo("#navbar1", { y: -50, opacity: 0 }, { y: 0, opacity: 1, duration: 1, delay: 0.5});
     gsap.fromTo("#navbar2", { y: -50, opacity: 0 }, { y: 0, opacity: 1, duration: 1, delay: 0.6});
     gsap.fromTo("#navbar3", { y: -50, opacity: 0 }, { y: 0, opacity: 1, duration: 1, delay: 0.7});
 
-    gsap.registerPlugin(SplitText);
-
-    const name = SplitText.create(".title", {type: "words, chars"});
-
-    gsap.from(name.chars, {
-      duration: 0.5,
-      opacity: 0,
-      y: 50,
-      ease: "back.out(1.7)",
-      stagger: 0.05,
-      delay: 1,
-      onComplete: () => {
-        name.revert();
+    (async () => {
+      type SplitTextCtor = new (target: Element | string, options?: { type?: string }) => { chars: Element[]; revert: () => void };
+      let SplitText: unknown = null;
+      let Ctor: SplitTextCtor | null = null;
+      try {
+        const mod = await import('gsap/SplitText');
+        const maybe = (mod as unknown as { SplitText?: unknown; default?: unknown });
+        SplitText = maybe.SplitText ?? maybe.default ?? null;
+        if (SplitText) {
+          gsap.registerPlugin(SplitText as object);
+          Ctor = SplitText as unknown as SplitTextCtor;
+          const name = new Ctor(".title", {type: "words, chars"});
+          gsap.from(name.chars, {
+            duration: 0.5,
+            opacity: 0,
+            y: 50,
+            ease: "back.out(1.7)",
+            stagger: 0.05,
+            delay: 1,
+            onComplete: () => {
+              name.revert();
+            }
+          });
+        } else {
+          gsap.from(".title", { opacity: 0, y: 12, duration: 0.6, ease: "power2.out", delay: 1 });
+        }
+      } catch {
+        // Fallback if plugin is unavailable
+        gsap.from(".title", { opacity: 0, y: 12, duration: 0.6, ease: "power2.out", delay: 1 });
       }
-    });
-    
+    })();
   }, []);
   return (
     <div className="w-full h-16 px-0.5 sticky top-0 z-50 bg-transparent backdrop-blur-xl flex justify-between items-center sm:px-10 sm:rounded-t-xl">
         <div className="w-full h-full flex justify-around  md:justify-between items-center sm:px-10  z-50 sm:rounded-t-xl">
-            <span className="text-lg md:text-2xl font-bold text-gray-800 dark:text-white title ">Ojaswi Bhardwaj</span>
+            <div className="flex items-center gap-2">
+              <span className="sr-only">Ojaswi Bhardwaj</span>
+              <span className="text-lg md:text-2xl font-extrabold tracking-tight title">
+                <span className="text-gray-900 dark:text-white">Ojaswi</span>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 via-lime-500 to-yellow-500 dark:from-red-500 dark:via-yellow-500 dark:to-red-500"> Bhardwaj</span>
+              </span>
+            </div>
             <nav className="space-x-10 hidden md:flex ">
             <a href="#greeting"    id="navbar1" className="px-3 py-2 text-gray-600 dark:text-white hover:bg-indigo-500 hover:text-white rounded-xl dark:hover:bg-white dark:hover:text-black">About</a>
             <a href="#projects" id="navbar2" className="px-3 py-2 text-gray-600 dark:text-white hover:bg-indigo-500 hover:text-white rounded-xl dark:hover:bg-white dark:hover:text-black">Projects</a>
@@ -55,7 +78,10 @@ export const NavBar = () => {
                 </svg>
               </button>
               {dropdownOpen && (
-                <ul className="absolute right-0 mt-2 w-40 bg-white dark:bg-gray-800 rounded-md shadow-lg py-2 z-50">
+                <ul className="absolute right-0 mt-2 w-52 bg-white dark:bg-gray-800 rounded-md shadow-lg py-2 z-50">
+                  <li>
+                    <div className="px-4 py-2 text-sm font-semibold text-gray-900 dark:text-white">Ojaswi Bhardwaj</div>
+                  </li>
                   <li>
                     <a
                       className="block px-4 py-2 text-gray-700 dark:text-white hover:bg-indigo-500 hover:text-white rounded-md"
@@ -84,13 +110,9 @@ export const NavBar = () => {
                     </a>
                   </li>
                   <li>
-                    <a
-                      className="block px-4 py-2 text-gray-700 dark:text-white hover:bg-indigo-500 hover:text-white rounded-md"
-                      href="#projects"
-                      onClick={() => setDropdownOpen(false)}
-                    >
+                    <div className="block px-4 py-2">
                       <ModeToggle />
-                    </a>
+                    </div>
                   </li>
                 </ul>
               )}

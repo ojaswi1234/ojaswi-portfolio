@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 
 export const ProjectSection = () => {
@@ -28,16 +29,20 @@ export const ProjectSection = () => {
                   />
                 </div>
               </aside>
-              <aside className="w-full md:w-1/2 flex flex-col justify-center gap-4 p-6">
+              <aside className="w-full md:w-1/2 flex flex-col justify-center gap-3 p-6">
                 <h2 className="text-xl md:text-3xl   bg-gradient-to-bl from-cyan-500 via-lime-500 to-yellow-500 bg-clip-text dark:bg-gradient-to-bl dark:from-red-500 dark:via-yellow-500 dark:to-red-500 text-transparent dark:text-transparent font-bold">SleepSense</h2>
                 <p className="text-sm md:text-base text-gray-600 dark:text-gray-300 leading-relaxed">
-                  A sleep tracking app that helps users monitor their sleep patterns and improve their sleep quality.
+                  Objective: Help users track sleep patterns to improve rest quality.
                 </p>
-               
+                <p className="text-xs md:text-sm text-gray-500">Stack: PHP,MySQL,  JavaScript, Chart.js, Tailwind</p>
+                <p className="text-xs md:text-sm text-gray-500">Role: Full‑stack design & development</p>
+                <p className="text-xs md:text-sm text-gray-500">Outcome: Interactive insights and daily/weekly trends.</p>
+                <div className="flex gap-3 pt-2">
+                  <Link className="px-3 py-2 rounded-md bg-indigo-600 text-white hover:bg-indigo-500" href="#" target="_blank" rel="noreferrer">Live Demo</Link>
+                  <Link className="px-3 py-2 rounded-md border border-indigo-300 dark:border-indigo-700 text-indigo-700 dark:text-indigo-300 hover:bg-indigo-50 dark:hover:bg-indigo-900/30" href="https://github.com/ojaswi1234/PHP_PROJECT.git" target="_blank" rel="noreferrer noopener">GitHub</Link>
+                </div>
               </aside>
             </div>
-
-
           </div>
            <div className="w-full bg-white dark:bg-zinc-800 rounded-xl shadow-lg overflow-hidden transition-all duration-300 ease-in-out hover:shadow-xl">
             <div className="flex flex-col md:flex-row">
@@ -53,12 +58,18 @@ export const ProjectSection = () => {
                   />
                 </div>
               </aside>
-              <aside className="w-full md:w-1/2 flex flex-col justify-center gap-4 p-6">
+              <aside className="w-full md:w-1/2 flex flex-col justify-center gap-3 p-6">
                 <h2 className="text-xl md:text-3xl   bg-gradient-to-bl from-cyan-500 via-lime-500 to-yellow-500 bg-clip-text dark:bg-gradient-to-bl dark:from-red-500 dark:via-yellow-500 dark:to-red-500 text-transparent dark:text-transparent font-bold">Just Notes</h2>
                 <p className="text-sm md:text-base text-gray-600 dark:text-gray-300 leading-relaxed">
-                  A web extension that allows users to take quick notes and save them for later reference, enhancing productivity and organization.
+                  Objective: Capture quick notes from anywhere in the browser.
                 </p>
-               
+                <p className="text-xs md:text-sm text-gray-500">Stack: MS Edge Extension, JavaScript, manifest.json </p>
+                <p className="text-xs md:text-sm text-gray-500">Role: Extension architecture & UX</p>
+                <p className="text-xs md:text-sm text-gray-500">Outcome: Lightweight, offline‑ready note taking.</p>
+                <div className="flex gap-3 pt-2">
+                  <Link className="px-3 py-2 rounded-md bg-indigo-600 text-white hover:bg-indigo-500" href="https://microsoftedge.microsoft.com/addons/detail/just-notes/mddmihmmmhkmllhcdjhlfhnpgjngdild?hl=en-US" target="_blank" rel="noreferrer">Live Demo</Link>
+                  <Link className="px-3 py-2 rounded-md border border-indigo-300 dark:border-indigo-700 text-indigo-700 dark:text-indigo-300 hover:bg-indigo-50 dark:hover:bg-indigo-900/30" href="https://github.com/ojaswi1234/notes_maker_ext.git" target="_blank" rel="noreferrer noopener">GitHub</Link>
+                </div>
               </aside>
             </div>
           </div>
@@ -76,12 +87,18 @@ export const ProjectSection = () => {
                   />
                 </div>
               </aside>
-              <aside className="w-full md:w-1/2 flex flex-col justify-center gap-4 p-6">
+              <aside className="w-full md:w-1/2 flex flex-col justify-center gap-3 p-6">
                 <h2 className="text-xl md:text-3xl   bg-gradient-to-bl from-cyan-500 via-lime-500 to-yellow-500 bg-clip-text dark:bg-gradient-to-bl dark:from-red-500 dark:via-yellow-500 dark:to-red-500 text-transparent dark:text-transparent font-bold"> 2 Player Chess Game</h2>
                 <p className="text-sm md:text-base text-gray-600 dark:text-gray-300 leading-relaxed">
-                  A real-time multiplayer chess game that allows two players to compete against each other, featuring a user-friendly interface and smooth gameplay.
+                  Objective: Real‑time multiplayer gameplay in the browser.
                 </p>
-               
+                <p className="text-xs md:text-sm text-gray-500">Stack: React, Node.js, Socket.IO</p>
+                <p className="text-xs md:text-sm text-gray-500">Role: Realtime comms & game state</p>
+                <p className="text-xs md:text-sm text-gray-500">Outcome: Smooth turns and presence indicators.</p>
+                <div className="flex gap-3 pt-2">
+                  <Link className="px-3 py-2 rounded-md bg-indigo-600 text-white hover:bg-indigo-500" href="#" target="_blank" rel="noreferrer">[Status: Updating]</Link>
+                  <Link className="px-3 py-2 rounded-md border border-indigo-300 dark:border-indigo-700 text-indigo-700 dark:text-indigo-300 hover:bg-indigo-50 dark:hover:bg-indigo-900/30" href="https://github.com/ojaswi1234/chess-game-with-chatting.git" target="_blank" rel="noreferrer noopener">GitHub</Link>
+                </div>
               </aside>
             </div>
           </div>
@@ -99,13 +116,17 @@ export const ProjectSection = () => {
                   />
                 </div>
               </aside>
-              <aside className="w-full md:w-1/2 flex flex-col justify-center gap-4 p-6">
+              <aside className="w-full md:w-1/2 flex flex-col justify-center gap-3 p-6">
                 <h2 className="text-xl md:text-3xl   bg-gradient-to-bl from-cyan-500 via-lime-500 to-yellow-500 bg-clip-text dark:bg-gradient-to-bl dark:from-red-500 dark:via-yellow-500 dark:to-red-500 text-transparent dark:text-transparent font-bold">Movie Spot</h2>
                 <p className="text-sm md:text-base text-gray-600 dark:text-gray-300 leading-relaxed">
-                  A movie discovery platform that allows users to search for movies, view details, and get recommendations based on their preferences. (Integrating AI for personalized recommendations)
+                  Objective: Discover films and get AI‑powered suggestions.
                 </p>
-                <div className="flex gap-4 mt-4">
-                
+                <p className="text-xs md:text-sm text-gray-500">Stack: Django, TMDB API, Edge functions, AI Recommendation</p>
+                <p className="text-xs md:text-sm text-gray-500">Role: Integration & UX</p>
+                <p className="text-xs md:text-sm text-gray-500">Outcome: Faster discovery and better picks.</p>
+                <div className="flex gap-3 pt-2">
+                  <Link className="px-3 py-2 rounded-md bg-indigo-600 text-white hover:bg-indigo-500" href="#" target="_blank" rel="noreferrer">[Status: Updating]</Link>
+                  <Link className="px-3 py-2 rounded-md border border-indigo-300 dark:border-indigo-700 text-indigo-700 dark:text-indigo-300 hover:bg-indigo-50 dark:hover:bg-indigo-900/30" href="https://github.com/ojaswi1234/MovieSpot" target="_blank" rel="noreferrer noopener">GitHub</Link>
                 </div>
               </aside>
             </div>
@@ -125,13 +146,17 @@ export const ProjectSection = () => {
                   />
                 </div>
               </aside>
-              <aside className="w-full md:w-1/2 flex flex-col justify-center gap-4 p-6">
+              <aside className="w-full md:w-1/2 flex flex-col justify-center gap-3 p-6">
                 <h2 className="text-xl md:text-3xl   bg-gradient-to-bl from-cyan-500 via-lime-500 to-yellow-500 bg-clip-text dark:bg-gradient-to-bl dark:from-red-500 dark:via-yellow-500 dark:to-red-500 text-transparent dark:text-transparent font-bold">To/Do</h2>
                 <p className="text-sm md:text-base text-gray-600 dark:text-gray-300 leading-relaxed">
-                  A simple and intuitive to-do list flutter application that helps users manage their tasks efficiently, with features like task categorization and reminders.
+                  Objective: Simple, delightful task management on mobile.
                 </p>
-                <div className="flex gap-4 mt-4">
-                 
+                <p className="text-xs md:text-sm text-gray-500">Stack: Flutter, Dart</p>
+                <p className="text-xs md:text-sm text-gray-500">Role: UI/UX & local storage</p>
+                <p className="text-xs md:text-sm text-gray-500">Outcome: Fast offline experience with reminders.</p>
+                <div className="flex gap-3 pt-2">
+                
+                  <Link className="px-3 py-2 rounded-md border border-indigo-300 dark:border-indigo-700 text-indigo-700 dark:text-indigo-300 hover:bg-indigo-50 dark:hover:bg-indigo-900/30" href="https://github.com/ojaswi1234/TO-DO-app-flutter-.git" target="_blank" rel="noreferrer">GitHub</Link>
                 </div>
               </aside>
             </div>

@@ -12,8 +12,9 @@ export const NavBar = () => {
 
     gsap.fromTo(".w-full", { opacity: 0 }, { opacity: 1, duration: 1 });
     gsap.fromTo("#navbar1", { y: -50, opacity: 0 }, { y: 0, opacity: 1, duration: 1, delay: 0.5});
-    gsap.fromTo("#navbar2", { y: -50, opacity: 0 }, { y: 0, opacity: 1, duration: 1, delay: 0.6});
-    gsap.fromTo("#navbar3", { y: -50, opacity: 0 }, { y: 0, opacity: 1, duration: 1, delay: 0.7});
+    gsap.fromTo("#navbar4", { y: -50, opacity: 0 }, { y: 0, opacity: 1, duration: 1, delay: 0.6});
+    gsap.fromTo("#navbar2", { y: -50, opacity: 0 }, { y: 0, opacity: 1, duration: 1, delay: 0.7});
+    gsap.fromTo("#navbar3", { y: -50, opacity: 0 }, { y: 0, opacity: 1, duration: 1, delay: 0.9});
 
     (async () => {
       type SplitTextCtor = new (target: Element | string, options?: { type?: string }) => { chars: Element[]; revert: () => void };
@@ -59,6 +60,7 @@ export const NavBar = () => {
             </div>
             <nav className="space-x-10 hidden md:flex ">
             <a href="#greeting"    id="navbar1" className="px-3 py-2 text-gray-600 dark:text-white hover:bg-indigo-500 hover:text-white rounded-xl dark:hover:bg-white dark:hover:text-black">About</a>
+            <a href="./resume.pdf"  id="navbar4" className="px-3 py-2 text-gray-600 dark:text-white hover:bg-indigo-500 hover:text-white rounded-xl dark:hover:bg-white dark:hover:text-black">My Resume</a>
             <a href="#projects" id="navbar2" className="px-3 py-2 text-gray-600 dark:text-white hover:bg-indigo-500 hover:text-white rounded-xl dark:hover:bg-white dark:hover:text-black">Projects</a>
             <a href="#contact"  id="navbar3" className="px-3 py-2 text-gray-600 dark:text-white hover:bg-indigo-500 hover:text-white rounded-xl dark:hover:bg-white dark:hover:text-black">Contact</a>
             < ModeToggle/>
@@ -86,6 +88,15 @@ export const NavBar = () => {
                     <a
                       className="block px-4 py-2 text-gray-700 dark:text-white hover:bg-indigo-500 hover:text-white rounded-md"
                       href="#greeting"
+                      onClick={() => setDropdownOpen(false)}
+                    >
+                      About
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      className="block px-4 py-2 text-gray-700 dark:text-white hover:bg-indigo-500 hover:text-white rounded-md"
+                      href="#resume"
                       onClick={() => setDropdownOpen(false)}
                     >
                       About

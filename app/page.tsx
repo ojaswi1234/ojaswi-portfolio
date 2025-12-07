@@ -152,7 +152,7 @@ export default function Home() {
 
           {/* Greeting & toggle */}
           <aside className="w-full sm:w-1/2 flex flex-col justify-center items-center sm:items-start">
-            <h1 ref={textContainerRef} className="text-xl md:text-3xl lg:text-[52px] font-bold text-center lg:text-start text-gray-800 dark:text-gray-200 mt-10 mb-3 lg:-mt-14">
+            <h1 ref={textContainerRef} className="text-xl md:text-3xl lg:text-[50px] font-bold text-center lg:text-start text-gray-800 dark:text-gray-200 mt-10 mb-3 lg:-mt-14">
               Hey there, This is{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-tl from-cyan-500 via-lime-500 to-yellow-500 dark:from-red-500 dark:via-yellow-500 dark:to-red-500">
                 Ojaswi !
@@ -162,7 +162,7 @@ export default function Home() {
   ref={aboutRef}
   className="font-normal text-center lg:text-left text-xs md:text-xl lg:text-lg mt-3 text-gray-600 dark:text-gray-400 px-10 md:px-1 lg:p-0"
 >
-  Full‑stack developer focused on React + Node. I build fast, accessible web & mobile apps with intuitive UI.
+  Full‑stack developer focused on Next.js. I build fast, accessible web & mobile apps with intuitive UI.
 </p>
             <div className="mt-4 flex flex-wrap gap-3">
               <a href="#projects" className="px-4 py-2 rounded-lg bg-indigo-600 text-white hover:bg-indigo-500">View projects</a>
@@ -198,17 +198,34 @@ export default function Home() {
         </div>
 
         {/* Other Sections */}
-        <div className="w-full h-fit bg-zinc-100 dark:bg-zinc-800 p-10">
-          <h1 className="text-center text-3xl font-semibold">My Github Stats & Contribution</h1>
-          <Image
-            src="https://github-readme-stats.vercel.app/api?username=Ojaswi1234&show_icons=true&theme=gruvbox&hide_border=true&count_private=true"
-            alt="GitHub Stats"
-            width={500}
-            height={200}
-            className="mx-auto my-5 rounded-xl border border-transparent"
-            unoptimized
+        <div className="flex flex-col items-center py-8 w-full  bg-gray-200 dark:bg-zinc-800">
+      <h2 className="text-3xl font-bold text-zinc-900 dark:text-transparent dark:bg-clip-text bg-gradient-to-tl dark:from-red-500 dark:via-yellow-500 dark:to-red-500 mb-6">⚡️ GitHub Stats ⚡️</h2>
+
+      <div className="bg-gray-900 dark:bg-gray-200 p-8 rounded-2xl shadow-2xl max-w-3xl w-full border border-cyan-900/30">
+        <img
+          src="https://raw.githubusercontent.com/ojaswi1234/ojaswi1234/main/images/userstats.svg"
+          alt="GitHub Stats"
+          className="w-full rounded-xl mb-6 shadow-lg"
+        />
+
+        <div className="flex justify-center gap-4 flex-wrap">
+          <img
+            src="https://img.shields.io/badge/Commits-1K%2B-38B6FF?style=flat-square&logo=git"
+            alt="Commits"
+          />
+          <img
+            src="https://img.shields.io/badge/Contributions-200%2B-3ECF8E?style=flat-square&logo=github"
+            alt="Contributions"
+          />
+          <img
+            src="https://img.shields.io/badge/Activity-100%25-00D4AA?style=flat-square&logo=dependabot"
+            alt="Activity"
           />
         </div>
+
+       
+      </div>
+    </div>
 
         <SkillSection />
         <ProjectSection />

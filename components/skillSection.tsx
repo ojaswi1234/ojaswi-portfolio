@@ -50,7 +50,7 @@ export const SkillSection = () => {
           </div>
           <div id="database" className={`w-full h-fit grid place-self-center grid-cols-1 lg:grid-cols-4 lg:col-span-1 justify-items-center justify-center gap-5 items-center transition-opacity duration-200 ${activeSection === 'database' ? 'opacity-100' : 'opacity-0 hidden'}`}>
             <Card name="MongoDB" src="/skills/mongodb.png" st="invert dark:invert-0"></Card>
-            
+            <Card name="Supabase" src="/skills/supabase.png" st=""></Card>
             <Card name="MySQL" src="/skills/mysql.png" st=""></Card>
            
           </div>
@@ -62,6 +62,9 @@ export const SkillSection = () => {
             <Card name="Android Studio" src="/skills/android.png" st=""></Card>
             <Card name="Git" src="/skills/git.png" st=""></Card>
             <Card name="GitHub" src="/skills/github.png" st=""></Card>
+            <Card name="Docker" src="/skills/docker.png" st=""></Card>
+            <Card name="Linux" src="/skills/linux.png" st=""></Card>
+            <Card name="GCP" src="/skills/gcp.png" st=""></Card>
            
           </div>
         </div>

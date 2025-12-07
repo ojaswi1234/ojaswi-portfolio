@@ -65,16 +65,20 @@ export const TerminalSection = () => {
               // No-op
             } else if (command === 'help') {
               term.current.writeln('\x1b[4mCommand     Description\x1b[0m');
-              term.current.writeln('about       Shows information about the developer');
-              term.current.writeln('linkedin    Opens LinkedIn profile link');
-              term.current.writeln('github      Opens GitHub profile link');
-              term.current.writeln('email       Shows contact email address');
-              term.current.writeln("projects    Shows a list of My Project ");
-              term.current.writeln('cls         Clears the terminal screen');
+              term.current.writeln('\x1b[1mabout\x1b[0m       Shows information about the developer');
+              term.current.writeln('\x1b[1mresume\x1b[0m      Downloads my resume');
+              term.current.writeln('\x1b[1mlinkedin\x1b[0m    Opens LinkedIn profile link');
+              term.current.writeln('\x1b[1mgithub\x1b[0m      Opens GitHub profile link');
+              term.current.writeln('\x1b[1memail\x1b[0m       Shows contact email address');
+              term.current.writeln('\x1b[1mprojects\x1b[0m    Shows a list of My Project');
+              term.current.writeln('\x1b[1mcls\x1b[0m         Clears the terminal screen');
+              
             } else if (command === 'cls') {
               term.current.clear();
 
-            } else if(command === 'linkedin'){
+            }else if(command === 'resume'){
+              window.open('/resume.pdf', '_blank');
+            }else if(command === 'linkedin'){
               window.open('https://www.linkedin.com/in/ojaswi-bhardwaj-962393281/', '_blank');
             }
             else if(command === 'github'){

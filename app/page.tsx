@@ -138,7 +138,7 @@ export default function Home() {
               loading="eager"
             />
             <Image
-              src="/contributor.png"
+              src="/linkedin_profile.png"
               alt="Alternate profile photo"
               width={200}
               height={200}

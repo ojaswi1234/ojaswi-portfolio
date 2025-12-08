@@ -5,6 +5,7 @@ const nextConfig: NextConfig = {
   images: {
     formats: ['image/webp', 'image/avif' ], // AVIF first, fallback to WebP
   },
+  output: "standalone",
 };
 
 

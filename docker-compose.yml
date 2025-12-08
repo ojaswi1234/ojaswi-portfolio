@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  web:
+    container_name: ojaswi_portfolio
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - 3000:3000
+    environment:
+      - NODE_ENV=production
+    # Optional: If you want to connect to a DB running on host
+    # extra_hosts:
+    #   - "host.docker.internal:host-gateway"

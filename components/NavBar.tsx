@@ -96,10 +96,10 @@ export const NavBar = () => {
                   <li>
                     <a
                       className="block px-4 py-2 text-gray-700 dark:text-white hover:bg-indigo-500 hover:text-white rounded-md"
-                      href="#resume"
+                      href="./resume.pdf"
                       onClick={() => setDropdownOpen(false)}
                     >
-                      About
+                      My Resume
                     </a>
                   </li>
                   <li>
